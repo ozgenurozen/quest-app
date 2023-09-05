@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import './index.css';
-
-import Post from './components/Post/Post';
-
 
 function App() {
-  const [data, setData] = useState([]); // State tanımlaması düzeltilmeli
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,19 +18,16 @@ function App() {
   }, []);
 
   return (
-
     <>
-    <div>
-      <Link to="user">User</Link>
-      <Post />
-     
-
-    </div>
-    <div>
-    </div>
+      <div>
+        <Link to="/user">User</Link>
+      </div>
+      <div>
+        <Link to="/home">Home</Link>
+      </div>
       <ul>
         {data.map((post) => (
-          <div className='test' key={post.id}> { }
+          <div className='test' key={post.id}>
             <li>
               Title: {post.title}
             </li>
@@ -45,8 +38,6 @@ function App() {
         ))}
       </ul>
     </>
-
-
   );
 }
 
